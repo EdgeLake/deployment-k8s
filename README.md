@@ -37,7 +37,7 @@ bash secret.sh [DOCKER_LOGIN]
 
 **Note**: In the configurations below, the value of `LEDGER_CONN` needs  to be the  TCP connection information that can 
 reach the master node. The same logic is also applied when connecting to external databases, such as PostgresSQL and 
-MongoDB.
+MongoDB.git 
 ```yaml
 ...
   directories:

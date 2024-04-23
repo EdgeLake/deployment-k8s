@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#!/bin/bash
+
 CMD=$1
 CONFIG_FILE=$2
 INTERNAL_IP=$3
