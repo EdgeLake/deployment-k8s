@@ -10,6 +10,7 @@ metadata:
   configmap_name: anylog-operator-configmap
   # Allows running Kubernetes remotely. If commented out, code will ignore it
   node_selector: ""
+  service_type: ClusterIP
 
 image:
   # Image secret naming
