@@ -18,9 +18,9 @@ image:
   # (Docker Hub) Image Path
   repository: anylogco/anylog-network
   # Image version
-  tag: 1.3.2404
+  tag: 1.3.2407-patdh1
   # Image pulling policy
-  pull_policy: Always # IfNotPresent
+  pull_policy: IfNotPresent
 
 node_configs:
   general:
