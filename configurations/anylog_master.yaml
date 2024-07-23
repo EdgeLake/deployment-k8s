@@ -18,7 +18,7 @@ image:
   # (Docker Hub) Image Path
   repository: anylogco/anylog-network
   # Image version
-  tag: 1.3.2404
+  tag: 1.3.2407-patch1
   # Image pulling policy
   pull_policy: Always # IfNotPresent
 
@@ -39,7 +39,7 @@ node_configs:
     # Port address used by AnyLog's REST protocol
     ANYLOG_REST_PORT: 32049
     # Internal IP address of the machine the container is running on - if not set, then a unique IP will be used each time
-    OVERLAY_IP: 10.0.0.251
+    OVERLAY_IP: 10.0.0.228
     # A bool value that determines if to bind to a specific IP and Port (a false value binds to all IPs)
     TCP_BIND: false
     # A bool value that determines if to bind to a specific IP and Port (a false value binds to all IPs)
