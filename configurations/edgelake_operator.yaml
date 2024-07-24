@@ -2,12 +2,12 @@ metadata:
   # Kubernetes Instance namespace
   namespace: default
   # hostname for deployment
-  hostname: anylog-operator
-  # deployment application name / Name of the AnyLog instance
-  app_name: anylog-operator
-  service_name: anylog-operator-service
+  hostname: edgelake-operator
+  # deployment application name / Name of the edgelake instance
+  app_name: edgelake-operator
+  service_name: edgelake-operator-service
   # Configuration file mapping name
-  configmap_name: anylog-operator-configmap
+  configmap_name: edgelake-operator-configmap
   # Allows running Kubernetes remotely. If commented out, code will ignore it
   node_selector: ""
   service_type: ClusterIP
@@ -16,30 +16,28 @@ image:
   # Image secret naming
   secret_name: imagepullsecret
   # (Docker Hub) Image Path
-  repository: anylogco/anylog-network
+  repository: anylogco/edgelake-network
   # Image version
-  tag: 1.3.2407-patch1
+  tag: latest
   # Image pulling policy
   pull_policy: IfNotPresent
 
 node_configs:
   general:
-    # AnyLog License Key
-    LICENSE_KEY: ""
-    # Information regarding which AnyLog node configurations to enable. By default, even if everything is disabled, AnyLog starts TCP and REST connection protocols
+    # Information regarding which edgelake node configurations to enable. By default, even if everything is disabled, edgelake starts TCP and REST connection protocols
     NODE_TYPE: operator
-    # Name of the AnyLog instance
-    NODE_NAME: anylog-operator
-    # Owner of the Anylog instance
+    # Name of the edgelake instance
+    NODE_NAME: edgelake-operator
+    # Owner of the edgelake instance
     COMPANY_NAME: New Company
 
   networking:
-    # Port address used by AnyLog's TCP protocol to communicate with other nodes in the network
-    ANYLOG_SERVER_PORT: 32148
-    # Port address used by AnyLog's REST protocol
-    ANYLOG_REST_PORT: 32149
+    # Port address used by edgelake's TCP protocol to communicate with other nodes in the network
+    edgelake_SERVER_PORT: 32148
+    # Port address used by edgelake's REST protocol
+    edgelake_REST_PORT: 32149
     # Port value to be used as an MQTT broker, or some other third-party broker
-    ANYLOG_BROKER_PORT: 32150
+    edgelake_BROKER_PORT: 32150
     # Internal IP address of the machine the container is running on - if not set, then a unique IP will be used each time
     OVERLAY_IP: ""
     # A bool value that determines if to bind to a specific IP and Port (a false value binds to all IPs)
@@ -84,14 +82,14 @@ node_configs:
     # Port associated with MQTT broker
     MQTT_PORT: 1883
     # User associated with MQTT broker
-    MQTT_USER: anyloguser
+    MQTT_USER: edgelakeuser
     # Password associated with MQTT user
-    MQTT_PASSWD: mqtt4AnyLog!
+    MQTT_PASSWD: mqtt4edgelake!
     # Whether to enable MQTT logging process
     MQTT_LOG: false
 
     # Topic to get data for
-    MSG_TOPIC: anylog-demo
+    MSG_TOPIC: edgelake-demo
     # Logical database name
     MSG_DBMS: new_company
     # Table where to store data

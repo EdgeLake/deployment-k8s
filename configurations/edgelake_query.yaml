@@ -2,12 +2,12 @@ metadata:
   # Kubernetes Instance namespace
   namespace: default
   # hostname for deployment
-  hostname: anylog-query
-  # deployment application name / Name of the AnyLog instance
-  app_name: anylog-query
-  service_name: anylog-query-service
+  hostname: edgelake-query
+  # deployment application name / Name of the edgelake instance
+  app_name: edgelake-query
+  service_name: edgelake-query-service
   # Configuration file mapping name
-  configmap_name: anylog-query-configmap
+  configmap_name: edgelake-query-configmap
   # Allows running Kubernetes remotely. If commented out, code will ignore it
   node_selector: ""
   service_type: ClusterIP
@@ -16,28 +16,26 @@ image:
   # Image secret naming
   secret_name: imagepullsecret
   # (Docker Hub) Image Path
-  repository: anylogco/anylog-network
+  repository: anylogco/edgelake-network
   # Image version
-  tag: 1.3.2407-patch1
+  tag: latest
   # Image pulling policy
   pull_policy: IfNotPresent
 
 node_configs:
   general:
-    # AnyLog License Key
-    LICENSE_KEY: ""
-    # Information regarding which AnyLog node configurations to enable. By default, even if everything is disabled, AnyLog starts TCP and REST connection protocols
+    # Information regarding which edgelake node configurations to enable. By default, even if everything is disabled, edgelake starts TCP and REST connection protocols
     NODE_TYPE: query
-    # Name of the AnyLog instance
-    NODE_NAME: anylog-query
-    # Owner of the Anylog instance
+    # Name of the edgelake instance
+    NODE_NAME: edgelake-query
+    # Owner of the edgelake instance
     COMPANY_NAME: New Company
 
   networking:
-    # Port address used by AnyLog's TCP protocol to communicate with other nodes in the network
-    ANYLOG_SERVER_PORT: 32348
-    # Port address used by AnyLog's REST protocol
-    ANYLOG_REST_PORT: 32349
+    # Port address used by edgelake's TCP protocol to communicate with other nodes in the network
+    edgelake_SERVER_PORT: 32348
+    # Port address used by edgelake's REST protocol
+    edgelake_REST_PORT: 32349
     # Internal IP address of the machine the container is running on - if not set, then a unique IP will be used each time
     OVERLAY_IP: ""
     # A bool value that determines if to bind to a specific IP and Port (a false value binds to all IPs)
