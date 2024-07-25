@@ -2,12 +2,12 @@ metadata:
   # Kubernetes Instance namespace
   namespace: default
   # hostname for deployment
-  hostname: anylog-node
-  # deployment application name / Name of the AnyLog instance
-  app_name: anylog-node
-  service_name: anylog-node-service
+  hostname: edgelake-node
+  # deployment application name / Name of the edgelake instance
+  app_name: edgelake-node
+  service_name: edgelake-node-service
   # Configuration file mapping name
-  configmap_name: anylog-node-configmap
+  configmap_name: edgelake-node-configmap
   # Allows running Kubernetes remotely. If commented out, code will ignore it
   node_selector: ""
   # K8s deployment service type
@@ -17,36 +17,34 @@ image:
   # Image secret naming
   secret_name: imagepullsecret
   # (Docker Hub) Image Path
-  repository: anylogco/anylog-network
+  repository: anylogco/edgelake-network
   # Image version
-  tag: 1.3.2404
+  tag: latest
   # Image pulling policy
   pull_policy: Always # IfNotPresent
-  # whether to deploy AnyLog (prod) or a linux cli (bash) with AnyLog installed, but not running
+  # whether to deploy edgelake (prod) or a linux cli (bash) with edgelake installed, but not running
   init_type: prod
-  # disable AnyLog's CLI
+  # disable edgelake's CLI
   disable_cli: false
 
 node_configs:
   directories:
-    # AnyLog Root Path
-    ANYLOG_PATH: /app
-    # !local_scripts: ${ANYLOG_HOME}/deployment-scripts/scripts
+    # edgelake Root Path
+    edgelake_PATH: /app
+    # !local_scripts: ${edgelake_HOME}/deployment-scripts/scripts
     LOCAL_SCRIPTS: /app/deployment-scripts/node-deployment
-    # !test_dir: ${ANYLOG_HOME}/deployment-scripts/tests
+    # !test_dir: ${edgelake_HOME}/deployment-scripts/tests
     TEST_DIR: /app/deployment-scripts/tests
 
   general:
-    # AnyLog License Key
-    LICENSE_KEY: ''
-    # Disable AnyLog's CLI interface
+    # Disable edgelake's CLI interface
     DISABLE_CLI: false
 
-    # Information regarding which AnyLog node configurations to enable. By default, even if everything is disabled, AnyLog starts TCP and REST connection protocols
+    # Information regarding which edgelake node configurations to enable. By default, even if everything is disabled, edgelake starts TCP and REST connection protocols
     NODE_TYPE: generic
-    # Name of the AnyLog instance
-    NODE_NAME: anylog-node
-    # Owner of the Anylog instance
+    # Name of the edgelake instance
+    NODE_NAME: edgelake-node
+    # Owner of the edgelake instance
     COMPANY_NAME: New Company
 
   geolocation:
@@ -62,9 +60,9 @@ node_configs:
   networking:
     # Internal IP address of the machine the container is running on - if not set, then a unique IP will be used each time
     OVERLAY_IP: ""
-    # Port address used by AnyLog's TCP protocol to communicate with other nodes in the network
+    # Port address used by edgelake's TCP protocol to communicate with other nodes in the network
     ANYLOG_SERVER_PORT: 32548
-    # Port address used by AnyLog's REST protocol
+    # Port address used by edgelake's REST protocol
     ANYLOG_REST_PORT: 32549
     # Port value to be used as an MQTT broker, or some other third-party broker
     ANYLOG_BROKER_PORT: ""
@@ -164,14 +162,14 @@ node_configs:
     # Port associated with MQTT broker
     MQTT_PORT: 1883
     # User associated with MQTT broker
-    MQTT_USER: anyloguser
+    MQTT_USER: edgelakeuser
     # Password associated with MQTT user
-    MQTT_PASSWD: mqtt4AnyLog!
+    MQTT_PASSWD: mqtt4edgelake!
     # Whether to enable MQTT logging process
     MQTT_LOG: false
 
     # Topic to get data for
-    MSG_TOPIC: anylog-demo
+    MSG_TOPIC: edgelake-demo
     # Logical database name
     MSG_DBMS: new_company
     # Table where to store data
